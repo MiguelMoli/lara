@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Schema;
  * Esta tabla almacena los tokens de acceso utilizados por el sistema
  * de autenticación personal de Laravel (Laravel Sanctum).
  */
+
 return new class extends Migration
 {
     // Crear tabla
+
     public function up(): void
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
@@ -27,6 +29,7 @@ return new class extends Migration
     }
 
     // Eliminar tabla
+    
     public function down(): void
     {
         Schema::dropIfExists('personal_access_tokens');
