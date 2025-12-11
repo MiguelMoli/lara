@@ -4,11 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Migración para crear la tabla personal_access_tokens.
+ * Esta tabla almacena los tokens de acceso utilizados por el sistema
+ * de autenticación personal de Laravel (Laravel Sanctum).
+ */
+
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    // Crear tabla
+
     public function up(): void
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
@@ -23,9 +28,8 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    // Eliminar tabla
+    
     public function down(): void
     {
         Schema::dropIfExists('personal_access_tokens');

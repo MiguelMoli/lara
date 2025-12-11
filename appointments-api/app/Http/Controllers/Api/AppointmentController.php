@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 class AppointmentController extends Controller
 {
     // Listar todas las citas
+
     public function index(): JsonResponse
     {
         $appointments = Appointment::orderBy('date')->orderBy('time')->get();
@@ -18,6 +19,7 @@ class AppointmentController extends Controller
     }
 
     // Crear nueva cita
+
     public function store(StoreAppointmentRequest $request): JsonResponse
     {
         $data = $request->validated();
@@ -26,12 +28,14 @@ class AppointmentController extends Controller
     }
 
     // Mostrar una cita
+
     public function show(Appointment $appointment): JsonResponse
     {
         return response()->json($appointment, 200);
     }
 
     // Actualizar cita
+
     public function update(UpdateAppointmentRequest $request, Appointment $appointment): JsonResponse
     {
         $appointment->update($request->validated());
@@ -39,9 +43,9 @@ class AppointmentController extends Controller
     }
 
     // Eliminar cita
+
     public function destroy(Appointment $appointment): JsonResponse
     {
-        // Si usas soft deletes: $appointment->delete();
         $appointment->delete();
         return response()->json(['message' => 'Cita eliminada'], 200);
     }

@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Database\Eloquent\SoftDeletes; // descomenta si usas soft deletes
+/**
+ * Modelo Appointment
+ * Representa una cita médica con paciente, doctor, fecha, hora y estado.
+ */
 
 class Appointment extends Model
 {
-    // use SoftDeletes;
+    // Campos permitidos para asignación masiva
 
     protected $fillable = [
         'patient_name',
@@ -18,9 +21,10 @@ class Appointment extends Model
         'status',
     ];
 
-    // Opcional: tratar date como instancia Carbon
+    // Casts para convertir automáticamente tipos de datos
+    
     protected $casts = [
         'date' => 'date',
-        'time' => 'datetime:H:i:s', // si prefieres manejar como datetime; también puedes dejar como string
+        'time' => 'datetime:H:i:s',
     ];
 }
